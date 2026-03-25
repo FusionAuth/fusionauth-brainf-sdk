@@ -1,0 +1,72 @@
+{
+  "variables": {
+    "apiKey": "bf-sdk-test-api-key-do-not-use-in-production-0000",
+    "applicationId": "e9fdb985-9173-4e01-9d73-ac2d60d1dc8e"
+  },
+  "apiKeys": [
+    {
+      "key": "#{apiKey}",
+      "description": "BF SDK Unrestricted API Key"
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "url": "/api/application/#{applicationId}",
+      "body": {
+        "application": {
+          "name": "BF SDK Test App",
+          "loginConfiguration": {
+            "allowTokenRefresh": true,
+            "generateRefreshTokens": true,
+            "requireAuthentication": true
+          },
+          "oauthConfiguration": {
+            "authorizedRedirectURLs": [
+              "http://localhost:3000/oauth-callback"
+            ],
+            "generateRefreshTokens": true,
+            "logoutURL": "http://localhost:3000/logout"
+          },
+          "registrationConfiguration": {
+            "enabled": true,
+            "type": "basic"
+          }
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration",
+      "body": {
+        "skipRegistrationVerification": true,
+        "user": {
+          "email": "admin@example.com",
+          "password": "password"
+        },
+        "registration": {
+          "applicationId": "#{FUSIONAUTH_APPLICATION_ID}",
+          "roles": [
+            "admin"
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration",
+      "body": {
+        "skipRegistrationVerification": true,
+        "user": {
+          "email": "test@brainfuck.io",
+          "firstName": "Brainfuck",
+          "lastName": "User",
+          "password": "changeme123"
+        },
+        "registration": {
+          "applicationId": "#{applicationId}"
+        }
+      }
+    }
+  ]
+}
