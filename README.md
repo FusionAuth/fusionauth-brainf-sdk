@@ -297,6 +297,7 @@ This project is released under the MIT License because even absurd things deserv
 
 ## Credits
 
+- **[Blair Ewalt](https://github.com/blairewalt)** - For his visionary leadership in bringing this crazy idea to light
 - **[Dan Moore](https://www.mooreds.com/wordpress/)** – For always bringing past ideas back to top of mind
 - **FusionAuth** – For creating an authentication platform worth compiling to Brainf*ck
 - **ELVM** (Esoteric Language Virtual Machine) – For the toolchain that made this possible
